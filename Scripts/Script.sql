@@ -184,3 +184,5 @@ select * from courses;
 select * from course_enrollment;
 
 insert into students(stud_id, name, email, phone, dob) values(3, '강보미', 'kbm@test.co.kr', '010-2133-1234', '2016-02-13');
+
+delete from students where stud_id = 4;
