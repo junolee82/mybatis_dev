@@ -6,7 +6,13 @@ public class PhoneNumber {
 	private String number;
 
 	public PhoneNumber() {
+	}
 
+	public PhoneNumber(String countryCode, String stateCode, String number) {
+
+		this.countryCode = countryCode;
+		this.stateCode = stateCode;
+		this.number = number;
 	}
 
 	public PhoneNumber(String str) {
@@ -23,13 +29,6 @@ public class PhoneNumber {
 				number = parts[2];
 			}
 		}
-	}
-
-	public PhoneNumber(String countryCode, String stateCode, String number) {
-
-		this.countryCode = countryCode;
-		this.stateCode = stateCode;
-		this.number = number;
 	}
 
 	public String getCountryCode() {
