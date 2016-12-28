@@ -9,29 +9,43 @@ import kr.or.dgit.bigdata.mybatis_dev.util.MyBatisSqlSessionFactory;
 
 public class StudentService {
 	private static final Logger logger = Logger.getLogger(StudentService.class);
-	
+
 	private final static StudentService instance = new StudentService();
 
 	public static StudentService getInstance() {
 		return instance;
 	}
-	
-	private StudentService(){}
-	
-	public Student findStudentById(int studId){
+
+	private StudentService() {
+	}
+
+	public Student findStudentById(int studId) {
 		if (logger.isDebugEnabled()) {
-			logger.debug("findStudentById(int) - start"); 
+			logger.debug("findStudentById(int) - start");
 		}
-		
+
 		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
-		try{
-		StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-		return studentMapper.findStudentById(studId);
-		}finally {
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			return studentMapper.findStudentById(studId);
+		} finally {
 			sqlSession.close();
 		}
-		
-		
 	}
-	
+
+	public int insertStudent(Student student) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("insertStudent(int) - start");
+		}
+		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.insertStudent(student);
+			sqlSession.commit();
+			return res;
+		} finally {
+			sqlSession.close();
+		}
+	}
 }
