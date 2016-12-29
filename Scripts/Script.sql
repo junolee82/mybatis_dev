@@ -186,3 +186,10 @@ select * from course_enrollment;
 insert into students(stud_id, name, email, phone, dob) values(3, '강보미', 'kbm@test.co.kr', '010-2133-1234', '2016-02-13');
 
 delete from students where stud_id = 4;
+
+insert into students(name, email, phone, dob) values('강보미', 'kbm@test.co.kr', '010-2133-1234', '2016-02-13');
+
+set foreign_key_checks = 1;
+
+update students set name = '김태희', email = 'kth@gmail.com', phone = '010-4584-4175', dob = '2016-12-29' where stud_id = 6;
+delete from students where stud_id = 6;
