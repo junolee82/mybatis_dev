@@ -21,4 +21,7 @@ public interface StudentMapper {
 	int updateStudent(Student student);
 
 	int deleteStudent(int id);
+	
+	//Join
+	Student selectStudentWithAddress(int id);
 }

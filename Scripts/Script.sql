@@ -193,3 +193,8 @@ set foreign_key_checks = 1;
 
 update students set name = '김태희', email = 'kth@gmail.com', phone = '010-4584-4175', dob = '2016-12-29' where stud_id = 6;
 delete from students where stud_id = 6;
+
+select stud_id, name, email, phone,
+		a.addr_id, street, city, state, zip, country
+from students s inner join addresses a on s.addr_id = a.addr_id
+where stud_id = 1;

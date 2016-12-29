@@ -76,7 +76,7 @@ public class StudentServiceTest {
 		Assert.assertSame(1, deleteStudent);
 	}*/
 
-	@Test
+/*	@Test
 	public void testFindAllStudents() {
 		
 	}
@@ -90,5 +90,11 @@ public class StudentServiceTest {
 		for (Entry<String, Object> entry : stdmap.entrySet()) {
 			System.out.printf("key : %s - value : %s%n", entry.getKey(),entry.getValue());
 		}
+	}*/
+	
+	@Test
+	public void testSelectStudentWithAddress() {
+		Student std = studentService.selectStudentWithAddress(1);
+		Assert.assertNotNull(std);
 	}
 }

@@ -103,7 +103,7 @@ public class StudentService {
 	
 	public Map<String, Object> findStudentByIdForMap(int studId) {
 		if (logger.isDebugEnabled()) {
-			logger.debug("findStudentById(int) - start");
+			logger.debug("findStudentByIdForMap(int) - start");
 		}
 
 		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
@@ -114,4 +114,20 @@ public class StudentService {
 			sqlSession.close();
 		}
 	}
+	
+	public Student selectStudentWithAddress(int studId) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("selectStudentWithAddress(int) - start");
+		}
+
+		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			return studentMapper.selectStudentWithAddress(studId);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	
 }
